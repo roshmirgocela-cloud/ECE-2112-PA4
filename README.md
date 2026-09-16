@@ -3,14 +3,15 @@
 # Made by: Roshmir Janylin C. Gocela | 2ECE-B
 
 The content of this repository contains the Programming Assignment 4 for our course "ECE 2112: Advanced Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three numerical python problems pertaining to Module 3 - Pandas.
-# 
+
+---
 ## 🔑 OBJECTIVES:
 The main objectives of this laboratory activity are to:
 1. load a CSV dataset into a Pandas DataFrame;
 2. select rows and columns using positional and label-based indexing;
 3. filter records using conditions on a DataFrame column; and
 4. extract a well-defined subset of data without changing the source data.
-#
+---
 
 # 📌PROBLEMS PYTHON DATA ANALYSIS (PANDAS):
 ### 📍 A. POSITIONAL AND LABEL-BASED SLICING 
