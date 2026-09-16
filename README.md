@@ -1,31 +1,31 @@
-# ECE-2112-PA4 💻
+# 💻🔗 ECE-2112-PA4 ⚙️📊
 # EXPERIMENT 4: DATA WRANGLING AND DATA VISUALIZATION
 # Made by: Roshmir Janylin C. Gocela | 2ECE-B
 
 The content of this repository contains the Programming Assignment 4 for our course "ECE 2112: Advanced Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three numerical python problems pertaining to Module 3 - Pandas.
-
-## 📌OBJECTIVES:
+# 
+## 🔑 OBJECTIVES:
 The main objectives of this laboratory activity are to:
 1. load a CSV dataset into a Pandas DataFrame;
 2. select rows and columns using positional and label-based indexing;
 3. filter records using conditions on a DataFrame column; and
 4. extract a well-defined subset of data without changing the source data.
-## 
+#
 
-## ⚙️PROBLEMS: PYTHON DATA ANALYSIS (PANDAS)
-### A. POSITIONAL AND LABEL-BASED SLICING 
+# 📌PROBLEMS PYTHON DATA ANALYSIS (PANDAS):
+### 📍 A. POSITIONAL AND LABEL-BASED SLICING 
 
 Download the Data set cars.cvs, then display the shape and complete list of column names of cars. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where the first data row is row 1. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
 ### Code
 
 ### picture
 
-| Left Aligned | Centered | Right Aligned |
+| ❇️Left Aligned | Centered | Right Aligned |
 | :---         | :---:    |          ---: |
 | Text         | Text     |          Text |
 
 ```diff
-+ This line will be green
++ This line will be blue
 - This line will be red
 ```
 #### The following functions and methods were used in this problem:
@@ -48,7 +48,7 @@ Download the Data set cars.cvs, then display the shape and complete list of colu
    Columns displayed in Part c: Model, mpg, cyl, hp, gear
     ```
 
-### B. MODEL LOOKUP
+### 📍B. MODEL LOOKUP
 
 Use Boolean indexing on the Model column to look up and display exact records without hardcoding row numbers. For displaying the complete row for Toyota Corolla and For Pontiac Firebird, display only Model, mpg, hp, and wt.
 
@@ -57,7 +57,7 @@ Use Boolean indexing on the Model column to look up and display exact records wi
 * `DataFrame.loc[condition]` - extracts complete observation rows meeting the Boolean condition.
 * `DataFrame.loc[condition, columns]` - selects specific labeled columns for the matching records.
 
-### C. MULTI-MODEL SUBSETTING
+### 📍C. MULTI-MODEL SUBSETTING
 
 Create a DataFrame named selected_cars containing only the records for Datsun 710, Lotus Europa, and Ferrari Dino. Retain only the columns Model, mpg, cyl, hp, and gear.
 
