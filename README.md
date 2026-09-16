@@ -74,8 +74,72 @@ Exact shape of selected_cars: (3, 5)
 Models included: Datsun 710, Lotus Europa, and Ferrari Dino
 Variables displayed: Model, mpg, cyl, hp, gear
     ```
+df = pd.read_excel('board2.xlsx')
+df ['Average'] = (df.Math + df.Electronics + df.GEAS + df.Communication)/4
 
+display (df)
 
+VisComm = df[(df['Hometown'] == 'Visayas') & 
+             (df['Track'] == 'Communication')
+             ][['Name', 'Gender', 'Math', 'Electronics', 'Average']]
+
+display (VisComm)
+
+print ("Number of rows:", len (VisComm))
+
+---
+VisFemale = df[(df['Hometown']=='Visayas') & (df['Gender'] == 'Female')][['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
+display (VisFemale)
+
+print ("\nFemale Students in Visayas whose average in GEAS and Electronics is atleast 60")
+display (VisFemale[VisFemale['Average']>=60])
+
+---
+mean_track = df.groupby('Track')['Average'].mean().reset_index()
+mean_gender = df.groupby('Gender')['Average'].mean().reset_index()
+mean_hometown = df.groupby('Hometown')['Average'].mean().reset_index()
+
+print("\nMean Average by Track")
+display(mean_track)
+
+print("\nMean Average by Gender")
+display(mean_gender)
+
+print("\nMean Average by Hometown")
+display(mean_hometown)
+
+fig, axes = plt.subplots(1, 3, figsize=(18, 5), sharey=True)
+fig.suptitle('Mean of Board Exam Average across the three Categorical Features', fontsize=16, fontweight='bold')
+
+axes[0].bar(mean_track['Track'], mean_track['Average'], color='#2b5c8f')
+axes[0].set_title('Mean Average by Track')
+axes[0].set_xlabel('Track')
+axes[0].set_ylabel('Mean Average Score')
+axes[0].set_ylim(0, 100)
+
+axes[1].bar(mean_gender['Gender'], mean_gender['Average'], color='#2e7d32')
+axes[1].set_title('Mean Average by Gender')
+axes[1].set_xlabel('Gender')
+axes[1].set_ylabel('Mean Average Score')
+
+axes[2].bar(mean_hometown['Hometown'], mean_hometown['Average'], color='#e65100')
+axes[2].set_title('Mean Average by Hometown')
+axes[2].set_xlabel('Hometown')
+axes[2].set_ylabel('Mean Average Score')
+
+plt.tight_layout()
+plt.show()
+
+highest_track = mean_track.loc[mean_track['Average'].idxmax(), 'Track']
+highest_gender = mean_gender.loc[mean_gender['Average'].idxmax(), 'Gender']
+highest_hometown = mean_hometown.loc[mean_hometown['Average'].idxmax(), 'Hometown']
+
+print("\nInterpretation Statements")
+print(f"\n1. Among the tracks, the {highest_track} track obtained the highest sample mean for Average.")
+print(f"2. Between genders, {highest_gender} students achieved the highest sample mean for Average.")
+print(f"3. Across the hometown regions, students from {highest_hometown} recorded the highest sample mean for Average.")
+
+---
 
 ---
 Thank you for reading! To run and verify the solutions, download cars.csv file listed, and open ECE2112_PA3_GOCELA.ipynb in Jupyter Notebook, JupyterLab, or Google colab, and execute all cells.
