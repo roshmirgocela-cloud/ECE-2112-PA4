@@ -60,7 +60,8 @@ Create a second DataFrame named VisFemale containing students whose Hometown is 
 
 #### The displayed code resulted in:
 ```
-VisFemale = df[(df['Hometown']=='Visayas') & (df['Gender'] == 'Female')][['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
+VisFemale = df[(df['Hometown']=='Visayas') & (df['Gender'] == 'Female')]
+[['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
 display (VisFemale)
 
 print ("\nFemale Students in Visayas whose average in GEAS and Electronics is atleast 60")
