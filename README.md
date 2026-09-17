@@ -28,7 +28,7 @@ Create a DataFrame named VisComm containing students whose Hometown is Visayas a
 | display()  | display(VisComm) |  Renders a DataFrame in an interactive, formatted tabular view inside the notebook. |
 | len()  | len(VisComm) |  Returns the total number of rows present in the DataFrame. |
 
-#### Code
+#### Displayed Resulted Code
 ```
 df = pd.read_excel('board2.xlsx')
 df ['Average'] = (df.Math + df.Electronics + df.GEAS + df.Communication)/4
@@ -58,7 +58,7 @@ Create a second DataFrame named VisFemale containing students whose Hometown is 
 | df[df['col'] >= value]  | VisFemale[VisFemale['Average'] >= 60] |  Selects matching rows dynamically for display without modifying the original DataFrame.|
 
 
-#### Displayed Result
+#### Displayed Resulted Code
 ```
 VisFemale = df[(df['Hometown']=='Visayas') & (df['Gender'] == 'Female')][['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
 display (VisFemale)
@@ -87,7 +87,7 @@ Examine how the recorded Average differs across the three categorical features: 
 | Series.idxmax()  | mean_track['Average'].idxmax() |  Identifies the row index holding the maximum numerical value in a Series.   |
 | df.loc[row, col]  | highest_track = mean_track.loc[..., 'Track'] |  Retrieves the specific category label associated with the identified peak index.   |
 
-#### Displayed Result
+#### Displayed Result Code
 ```
 mean_track = df.groupby('Track')['Average'].mean().reset_index()
 mean_gender = df.groupby('Gender')['Average'].mean().reset_index()
@@ -133,13 +133,15 @@ print(f"\n1. Among the tracks, the {highest_track} track obtained the highest sa
 print(f"2. Between genders, {highest_gender} students achieved the highest sample mean for Average.")
 print(f"3. Across the hometown regions, students from {highest_hometown} recorded the highest sample mean for Average.")
 
+```
+
 ---
  
-❇️ README File Version History
-September 16, 2026 - Upload .ipynb file
-September 17, 2026 - Update .ipynb file
-September 17, 2026 - Upload README file
-September 17, 2026 - Upload .xlsx file
+## ❇️ README File Version History
+* September 16, 2026 - Upload .ipynb file
+* September 17, 2026 - Update .ipynb file
+* September 17, 2026 - Upload README file
+* September 17, 2026 - Upload .xlsx file
 
 ---
 Thank you for reading! To run and verify the solutions, open ECE2112_PA4_GOCELA.ipynb in Jupyter Notebook, JupyterLab, or Google colab, and execute all cells.
