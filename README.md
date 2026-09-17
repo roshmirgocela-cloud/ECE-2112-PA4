@@ -28,7 +28,7 @@ Create a DataFrame named VisComm containing students whose Hometown is Visayas a
 | display()  | display(VisComm) |  Renders a DataFrame in an interactive, formatted tabular view inside the notebook. |
 | len()  | len(VisComm) |  Returns the total number of rows present in the DataFrame. |
 
-#### Displayed Resulted Code
+#### The displayed code resulted in: 
 ```
 df = pd.read_excel('board2.xlsx')
 df ['Average'] = (df.Math + df.Electronics + df.GEAS + df.Communication)/4
@@ -58,7 +58,7 @@ Create a second DataFrame named VisFemale containing students whose Hometown is 
 | df[df['col'] >= value]  | VisFemale[VisFemale['Average'] >= 60] |  Selects matching rows dynamically for display without modifying the original DataFrame.|
 
 
-#### Displayed Resulted Code
+#### The displayed code resulted in:
 ```
 VisFemale = df[(df['Hometown']=='Visayas') & (df['Gender'] == 'Female')][['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
 display (VisFemale)
@@ -87,7 +87,7 @@ Examine how the recorded Average differs across the three categorical features: 
 | Series.idxmax()  | mean_track['Average'].idxmax() |  Identifies the row index holding the maximum numerical value in a Series.   |
 | df.loc[row, col]  | highest_track = mean_track.loc[..., 'Track'] |  Retrieves the specific category label associated with the identified peak index.   |
 
-#### Displayed Result Code
+#### The displayed code resulted in:
 ```
 mean_track = df.groupby('Track')['Average'].mean().reset_index()
 mean_gender = df.groupby('Gender')['Average'].mean().reset_index()
