@@ -19,13 +19,16 @@ The main objectives of this laboratory activity are to:
 Create a DataFrame named VisComm containing students whose Hometown is Visayas and whose Track is Communication. Retain only these columns, in the stated order: Name, Gender, Math, Electronics, Average. Both filtering conditions must be applied to the source dataset before the columns are selected, while displaying the resulting DataFrame and its number of rows. 
 
 #### The following functions and methods were used in this problem:
-```
-| Function and method | Code used example | Meaning |
-| :---  | :---:|    ---: |
-| df ['']         | (df.Math + df.Electronics + df.GEAS + df.Communication)     |          Text |
-| df[''] == ''         | (df['Hometown'] == 'Visayas')     |          Text |
-```
-#### Displayed Result
+| Command | Function | Description |
+| ---  | --- |  --- |
+| pd.read_excel()  | df = pd.read_excel('board2.xlsx') |  Reads an Excel file and loads its data into a Pandas DataFrame. |
+| df['col'] = | df['Average'] = (df.Math + df.Electronics + ...)/4 |  Creates a new column or assigns computed values to an existing column. |
+| df['col'] == 'value'  | (df['Hometown'] == 'Visayas') |  Evaluates a relational equality condition element-wise to generate a boolean Series mask. |
+| [['col1', 'col2']]  | [['Name', 'Gender', 'Math', 'Electronics', 'Average']] |  Selects and reorders a specific list of columns from a DataFrame. |
+| display()  | display(VisComm) |  Renders a DataFrame in an interactive, formatted tabular view inside the notebook. |
+| len()  | len(VisComm) |  Returns the total number of rows present in the DataFrame. |
+
+#### Code
 ```
 df = pd.read_excel('board2.xlsx')
 df ['Average'] = (df.Math + df.Electronics + df.GEAS + df.Communication)/4
@@ -41,19 +44,20 @@ display (VisComm)
 print ("Number of rows:", len (VisComm))
 ```
 
-❇️
 ### 📍B. VISAYAS FEMALE DATAFRAME
 
-Create a second DataFrame named VisFemale containing students whose Hometown is Visayas and whose Gender is Female. Retain only: Name, Track, GEAS, Electronics, Average. Display VisFemale. Then display only the rows of VisFemale whose Average is at least 60. Do not
-overwrite VisFemale when performing this second filter
+Create a second DataFrame named VisFemale containing students whose Hometown is Visayas and whose Gender is Female. Retain only: Name, Track, GEAS, Electronics, Average. Display VisFemale. Then display only the rows of VisFemale whose Average is at least 60. Do not overwrite VisFemale when performing this second filter.
 
 #### The following functions and methods were used in this problem:
-```
-| Function and method | Code used example | Meaning |
-| :---  | :---:|    ---: |
-| df['']=='' | df[(df['Hometown']=='Visayas') | purely base to return the displaying value of (rows, columns) of the DataFrame |
-|['Average']>=60 | VisFemale[VisFemale['Average']>=60] | text |
-```
+
+| Command | Function | Description |
+| ---  | --- |  --- |
+| df['col'] == 'value'  | (df['Hometown'] == 'Visayas') & (df['Gender'] == 'Female') |  Generates a boolean mask matching records that meet both location and gender criteria.|
+| df[...]  | df[(...) & (...)][['Name', 'Track', ...]] |  Extracts specific records and retains only the requested column subset. |
+| df['col'] >= value  | VisFemale['Average'] >= 60 |  Evaluates a relational comparison to identify numeric values greater than or equal to a threshold. |
+| df[df['col'] >= value]  | VisFemale[VisFemale['Average'] >= 60] |  Selects matching rows dynamically for display without modifying the original DataFrame.|
+
+
 #### Displayed Result
 ```
 VisFemale = df[(df['Hometown']=='Visayas') & (df['Gender'] == 'Female')][['Name', 'Track', 'GEAS', 'Electronics', 'Average']]
@@ -64,23 +68,24 @@ display (VisFemale[VisFemale['Average']>=60])
 ```
 ### 📍C. CATEGORY-AVERAGE VISUALIZATION
 
-In Examining how the recorded Average differs across the three categorical features Track, Gender, and Hometown. Compute the mean of Average for every category using Pandas and display the three summary tables. After, create one figure containing three bar charts: mean Average by Track, by Gender, and by Hometown. Below the figure, write three concise statements identifying the category with the highest sample mean for each feature.
+Examine how the recorded Average differs across the three categorical features: Track, Gender, and Hometown. Compute the mean of Average for every category using Pandas and display the three summary tables. Afterward, create one figure containing three bar charts: mean Average by Track, by Gender, and by Hometown. Below the figure, write three concise statements identifying the category with the highest sample mean for each feature.
 
 #### The following functions and methods were used in this problem:
-```
-| Function and method | Code used example | Meaning |
-| :---  | :---:|    ---: |
-| df.groupby('')       | df.groupby('Track') | text |
-| ['Average'].mean()        | ['Average'].mean() | text |
-| fig, axes = plt.subplots()| fig, axes = plt.subplots(1, 3, figsize=(18, 5), sharey=True)| text |
-| fig.suptitle()         |fig.suptitle('Mean of Board Exam Average across the three Categorical Features...' | text |
-|  axes[0].bar()      | axes[0].bar(mean_track ) | text |
-| axes[0].set_title         | axes[1].set_title('Mean Average by Gender') | text |
-| axes[0].set_xlabel()        | fig.suptitle | text |
-| axes[0].set_xlabel()        | fig.suptitle | text |
-| axes[0].set_ylabel()        | fig.suptitle | text |
-| highest_track = mean_track.loc()        | highest_track = mean_track.loc[mean_track['Average'].idxmax(), 'Track'] | text |
-```
+
+| Command | Function | Description |
+| ---  | --- |  --- |
+| df.groupby()  | df.groupby('Track') |  Groups DataFrame rows by unique values of a categorical column. |
+| ['col'].mean()  | ['Average'].mean() |  Computes the arithmetic average of a numeric column for each grouped category. |
+| .reset_index()  | .reset_index() |  Converts the grouped index back into standard DataFrame columns. |
+| plt.subplots()  | fig, axes = plt.subplots(1, 3, figsize=(18, 5), sharey=True) |  Initializes a multi-panel figure grid with specified dimensions and aligned y-axes.   |
+| fig.suptitle()  | fig.suptitle('Mean of Board Exam Average...', fontsize=16, ...) |  Sets a centered super-title across the entire visualization figure.   |
+| axes[i].set_xlabel()  | axes[0].set_xlabel('Track') |  Assigns an axis label to the horizontal(x) of a subplot |
+| axes[i].set_ylabel()  | axes[0].set_ylabel('Mean Average Score') |  Assigns an axis label to the vertical (y) axis of a subplot.   |
+| axes[i].set_ylim()  | axes[0].set_ylim(0, 100) |  Fixes the numerical boundaries of the y-axis to maintain consistent scaling.   |
+| plt.tight_layout()  | plt.tight_layout() |  Automatically adjusts subplot padding and spacing to prevent overlapping elements.   |
+| plt.show()  | plt.show() |  Renders the complete figure display.   |
+| Series.idxmax()  | mean_track['Average'].idxmax() |  Identifies the row index holding the maximum numerical value in a Series.   |
+| df.loc[row, col]  | highest_track = mean_track.loc[..., 'Track'] |  Retrieves the specific category label associated with the identified peak index.   |
 
 #### Displayed Result
 ```
@@ -129,9 +134,13 @@ print(f"2. Between genders, {highest_gender} students achieved the highest sampl
 print(f"3. Across the hometown regions, students from {highest_hometown} recorded the highest sample mean for Average.")
 
 ---
-README.md Update
-September 16, 2026 -
-September 17, 2026 -
+ 
+❇️ README File Version History
+September 16, 2026 - Upload .ipynb file
+September 17, 2026 - Update .ipynb file
+September 17, 2026 - Upload README file
+September 17, 2026 - Upload .xlsx file
+
 ---
 Thank you for reading! To run and verify the solutions, open ECE2112_PA4_GOCELA.ipynb in Jupyter Notebook, JupyterLab, or Google colab, and execute all cells.
 
