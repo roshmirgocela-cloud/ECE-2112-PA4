@@ -102,21 +102,23 @@ display(mean_gender)
 print("\nMean Average by Hometown")
 display(mean_hometown)
 
+display(pd.concat([Mean_Track, Mean_Gender, Mean_Hometown], keys=['Track', 'Gender', 'Hometown' ]))
+
 fig, axes = plt.subplots(1, 3, figsize=(18, 5), sharey=True)
 fig.suptitle('Mean of Board Exam Average across the three Categorical Features', fontsize=16, fontweight='bold')
 
-axes[0].bar(mean_track['Track'], mean_track['Average'], color='#2b5c8f')
+axes[0].bar(mean_track['Track'], mean_track['Average'], color='#8dd3b9')
 axes[0].set_title('Mean Average by Track')
 axes[0].set_xlabel('Track')
 axes[0].set_ylabel('Mean Average Score')
 axes[0].set_ylim(0, 100)
 
-axes[1].bar(mean_gender['Gender'], mean_gender['Average'], color='#2e7d32')
+axes[1].bar(mean_gender['Gender'], mean_gender['Average'], color='#ffffb3')
 axes[1].set_title('Mean Average by Gender')
 axes[1].set_xlabel('Gender')
 axes[1].set_ylabel('Mean Average Score')
 
-axes[2].bar(mean_hometown['Hometown'], mean_hometown['Average'], color='#e65100')
+axes[2].bar(mean_hometown['Hometown'], mean_hometown['Average'], color='#b4aee0')
 axes[2].set_title('Mean Average by Hometown')
 axes[2].set_xlabel('Hometown')
 axes[2].set_ylabel('Mean Average Score')
@@ -128,10 +130,10 @@ highest_track = mean_track.loc[mean_track['Average'].idxmax(), 'Track']
 highest_gender = mean_gender.loc[mean_gender['Average'].idxmax(), 'Gender']
 highest_hometown = mean_hometown.loc[mean_hometown['Average'].idxmax(), 'Hometown']
 
-print("\nInterpretation Statements")
-print(f"\n1. Among the tracks, the {highest_track} track obtained the highest sample mean for Average.")
-print(f"2. Between genders, {highest_gender} students achieved the highest sample mean for Average.")
-print(f"3. Across the hometown regions, students from {highest_hometown} recorded the highest sample mean for Average.")
+print("The Category with the Highest Sample Mean:")
+print(" 1. The Track feature has the highest sample mean is in the category", MT, "with an average of", T)
+print(" 2. The Gender feature has the highest sample mean is in the category", MG, "with an average of", G)
+print(" 3. The Hometown feature has the highest sample mean is in the category", MH, "with an average of", H)
 
 ```
 
